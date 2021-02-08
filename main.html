@@ -34,19 +34,20 @@
           </div>
         </div>
       </nav>
-
+      
     <div class="container">
-        <section class="text-center mt-5"> 
-        <form class="col-md-6 m-auto py-5">
-            <div class="input-group mb-3">
-                <input type="text" id="food-name" class="form-control" placeholder="Enter a Food Name ...">
+          <section class="text-center mt-5"> 
+            <h2> SEARCH YOUR ITEMS </h2>
+         <form class="col-md-6 m-auto py-5">
+        <div class="input-group mb-3">
+                <input  type="text" id="food-name" class="form-control" placeholder="Enter a Food Name ...">
                 <div >
-                    <button type="button" class="btn btn-danger" id="searchbtn">Search</button>
+                    <button type="button" class="btn btn-danger" id="search-btn">Search</button>
                 </div>
             </div>
         </form>
     </section>
-    <div class="item-details">
+   <div   id="item-details" class="item-div"> 
 
     </div>
 
@@ -58,88 +59,9 @@
         
     </div>
    
- <!-- <script src="main.js"> </script>  -->
+  <script src="main.js"> </script>  
 
- <script>
-
-// document.getElementById("search-btn").addEventListener("click", function(){
-
-//     console.log("search clicked");
-    
-    
-// })
-
-
-
-
-const searchbtn = document.getElementById('searchbtn');
-const term = searchbtn.value ;
-searchbtn.addEventListener('click', function () {
-
-    
-
-    const apiKey = '1';
-    
-    //const apiBase = `https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`;
-    
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
-           .then(response => response.json())
-           .then(data =>  displayMeals(data.meals));
-        });
-    
-           const displayMeals = meals  =>{
-                               //countries
-               const item = document.getElementById('search-result');
-                     //countriesDiv
-               for (let i = 0 ; i < meals.length ; i ++){
-                                   //countries.length
-
-                 const meal = meals[i];
-                    //country  countries
-                 const items = document.createElement('div');
-         //mealDiv    //countryDiv
-                     items.className ='item-Name';
-
-                        const itemsInfo =`
-                        <img onclick="displayItemIngredient('${meal.idMeal}')"  class="item-img" src="${meal.strMealThumb}">
-                        <h3 class=items-name > ${meal.strMeal} </h3>
-                        <button type="button" class="btn btn-danger" id="searchbtn"> More info</button> 
-                        `
-                        items.innerHTML = itemsInfo ;
-             //mealDiv    //countryDiv
-                        item.appendChild(items);
-                  //countriesDiv    //countryDiv
-
-                        
-              
-           }
-             
-        }
-        const displayItemIngredient = idMeal =>{
-    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`
-        fetch(url)
-        .then(res => res.json())
-        .then(data => renderMealInfo(data.meal[0]));
-}
-const renderInfo = meal => {
-    const items = document.getElementById('item-details')
-    items.innerHTML =`
-    <img  class="Ingredient-img" src ="${meal.strMealThumb}">
-    <h2>${meal.strMeal}</h2>
-    <h3>Ingredient</h3>
-    <p>1- ${meal.strIngredient1} ${meal.strMeasure1}</p>
-    <p>2-  ${meal.strIngredient2} ${meal.strMeasure2}</p>
-    <p>3-  ${meal.strIngredient3} ${meal.strMeasure3}</p>
-    <p>4-  ${meal.strIngredient4} ${meal.strMeasure4}</p>
-    <p>5- ${meal.strIngredient5} ${meal.strMeasure5}</p>
-    <p>6-  ${meal.strIngredient6} ${meal.strMeasure6}</p>
-
-    `
-}
-
-
-
- </script>
+ 
    
 </body>
 </html>

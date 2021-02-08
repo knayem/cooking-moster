@@ -28,6 +28,41 @@ text-align: center;
 width: 300px;
 
 }
+#originArea{
+
+color: red ;
+font-size: 30px;
+
+}
+#item-details{
+    
+    box-shadow: 20px white ;
+
+    border: 0px solid white;
+    color:whitesmoke;
+    
+    background:rgb(170, 168, 168);
+    border-radius: 20px;
+    padding-top: 10px;
+    padding: auto;
+    text-align: center;
+    
+    
+
+}
+
+#item-details img {
+
+    width: 250px;
+
+}
+
+.item-div{
+    background: black;
+	width: 35%;
+	border-radius: 12px;
+
+}
 .items-name{
     font-family: 'Pacifico', cursive;
 
@@ -35,7 +70,7 @@ width: 300px;
     color:whitesmoke;
 }
 .item-img{
-    width: 250px;
+    width: 290px;
 	
 
 
